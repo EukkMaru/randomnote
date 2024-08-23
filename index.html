@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 음표 생성기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>뷁</h1>
+        <button onclick="generateRandomNote()">뷁뷁</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const noteLengths = ['온음표', '점2분음표', '겹점2분음표', '2분음표', '점4분음표', '겹점4분음표', '4분음표', '점8분음표', '겹점8분음표', '8분음표', '점16분음표', '겹점16분음표', '16분음표', '점32분음표', '32분음표'];
+
+        function generateRandomNote() {
+            const octave = Math.floor(Math.random() * 8) + 1;
+            const note = notes[Math.floor(Math.random() * notes.length)];
+            const length = noteLengths[Math.floor(Math.random() * noteLengths.length)];
+            
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+                <p>음: ${note}${octave}</p>
+                <p>길이: ${length}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
